@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find abi_description)/launch/controller.yaml" command="load"/>
+<node args="r_hip_roll_joint_position_controller l_hip_roll_joint_position_controller r_hip_yaw_joint_position_controller l_hip_yaw_joint_position_controller l_hip_pitch_joint_position_controller r_hip_pitch_joint_position_controller r_knee_pitch_joint_position_controller l_knee_pitch_joint_position_controller r_ankle_pitch_joint_position_controller l_ankle_pitch_joint_position_controller l_ankle_roll_joint_position_controller r_ankle_roll_joint_position_controller joint_state_controller " name="controller_spawner" ns="abi" output="screen" pkg="controller_manager" respawn="false" type="spawner"/>
+<node name="robot_state_publisher" output="screen" pkg="robot_state_publisher" respawn="false" type="robot_state_publisher">
+  <remap from="/joint_states" to="/abi/joint_states"/>
+</node>
+
+</launch>
