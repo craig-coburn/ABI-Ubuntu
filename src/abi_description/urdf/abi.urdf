@@ -127,8 +127,11 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  <!-- ros_control plugin -->
   <gazebo>
-    <plugin filename="libgazebo_ros_control.so" name="control"/>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/abi</robotNamespace>
+    </plugin>
   </gazebo>
   <gazebo>
     <plugin filename="libgazebo_ros_p3d.so" name="ground_truth">
@@ -166,72 +169,72 @@
   <gazebo reference="base_link"/>
   <!-- IMU -->
   <gazebo reference="imu_link"/>
-  <gazebo reference="base_link">
-    <material>Gazebo/Silver</material>
+  <!-- Body-->
+  <gazebo reference="base_footprint">
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <selfCollide>true</selfCollide>
-    <gravity>true</gravity>
+    <material>Gazebo/Grey</material>
+    <selfCollide>false</selfCollide>
   </gazebo>
   <gazebo reference="r_hip_roll_link_1">
-    <material>Gazebo/Silver</material>
+    <material>Gazebo/Gray</material>
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <selfCollide>true</selfCollide>
+    <selfCollide>false</selfCollide>
   </gazebo>
   <gazebo reference="l_hip_roll_link__1__1">
-    <material>Gazebo/Silver</material>
+    <material>Gazebo/Gray</material>
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <selfCollide>true</selfCollide>
+    <selfCollide>false</selfCollide>
   </gazebo>
   <gazebo reference="r_hip_yaw_link_1">
-    <material>Gazebo/Silver</material>
+    <material>Gazebo/Gray</material>
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <selfCollide>true</selfCollide>
+    <selfCollide>false</selfCollide>
   </gazebo>
   <gazebo reference="l_hip_yaw_link_1">
-    <material>Gazebo/Silver</material>
+    <material>Gazebo/Gray</material>
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <selfCollide>true</selfCollide>
+    <selfCollide>false</selfCollide>
   </gazebo>
   <gazebo reference="l_hip_pitch_link__1__1">
-    <material>Gazebo/Silver</material>
+    <material>Gazebo/Gray</material>
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <selfCollide>true</selfCollide>
+    <selfCollide>false</selfCollide>
   </gazebo>
   <gazebo reference="r_hip_pitch_link__1__1">
-    <material>Gazebo/Silver</material>
+    <material>Gazebo/Gray</material>
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <selfCollide>true</selfCollide>
+    <selfCollide>false</selfCollide>
   </gazebo>
   <gazebo reference="r_knee_pitch_link__1__1">
-    <material>Gazebo/Silver</material>
+    <material>Gazebo/Gray</material>
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <selfCollide>true</selfCollide>
+    <selfCollide>false</selfCollide>
   </gazebo>
   <gazebo reference="l_knee_pitch_link__1__1">
-    <material>Gazebo/Silver</material>
+    <material>Gazebo/Gray</material>
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <selfCollide>true</selfCollide>
+    <selfCollide>false</selfCollide>
   </gazebo>
   <gazebo reference="r_ankle_pitch_link__1__1">
-    <material>Gazebo/Silver</material>
+    <material>Gazebo/Gray</material>
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <selfCollide>true</selfCollide>
+    <selfCollide>false</selfCollide>
   </gazebo>
   <gazebo reference="l_ankle_pitch_link__1__1">
-    <material>Gazebo/Silver</material>
+    <material>Gazebo/Gray</material>
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
-    <selfCollide>true</selfCollide>
+    <selfCollide>false</selfCollide>
   </gazebo>
   <gazebo reference="l_ankle_roll_link__1__1">
     <kp>100000.0</kp>

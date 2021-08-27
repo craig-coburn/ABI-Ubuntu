@@ -1,0 +1,34 @@
+<launch>
+
+<!-- Launch Gazebo -->
+ <include file="$(find abi_description)/launch/abi_world.launch" /> 
+
+<!-- Load joint controller configuration from YAML file to parameter server -->
+<rosparam file="$(find abi_description)/launch/controller.yaml" command="load"/>
+
+<!-- Load the controllers -->
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+output="screen" ns="/abi"
+args="joint_state_controller
+r_hip_roll_joint_position_controller
+l_hip_roll_joint_position_controller
+r_hip_yaw_joint_position_controller
+l_hip_yaw_joint_position_controller
+l_hip_pitch_joint_position_controller
+r_hip_pitch_joint_position_controller
+r_knee_pitch_joint_position_controller
+l_knee_pitch_joint_position_controller
+r_ankle_pitch_joint_position_controller
+l_ankle_pitch_joint_position_controller
+l_ankle_roll_joint_position_controller
+r_ankle_roll_joint_position_controller"/>
+
+<!-- Convert joint states to TF transforms for rvis -->
+<node name="robot_state_publisher" pkg="robot_state_publisher"
+type="robot_state_publisher"
+respawn="false" output="screen">
+<remap from="/joint_states" to="/abi/joint_states" />
+</node>
+
+</launch>
+
